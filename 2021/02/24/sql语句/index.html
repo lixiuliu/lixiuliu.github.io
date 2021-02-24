@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>模块的加载机制 - lixiu的博客</title>
+  <title>sql语句 - lixiu的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="模块的加载机制">
+            <span class="h2" id="subtitle" title="sql语句">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-21 20:29" pubdate>
-        2021年2月21日 晚上
+      <time datetime="2021-02-24 20:51" pubdate>
+        2021年2月24日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      366 字
+      484 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -224,10 +224,46 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">模块的加载机制</h1>
+            <h1 style="display: none">sql语句</h1>
             
             <div class="markdown-body">
-              <p>1.模块的缓存机制: 不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的加载效率<br>2.核心模块加载机制:require() 总是会优先加载核心模块<br>3.a.自定义模块的加载机制: 使用 require() 方法去加载自定义模块，必须指定 ‘/‘、 ‘./‘ 或 ‘../‘ 开头的路径，如果没有这个<br> 路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块<br> b.自定义文件模块：如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载<br> c.自定义目录模块<br> 当传递一个目录标识符给 require () 方法时, 加载的顺序如下:<br> c1. 在加载的目录下查找 package.json 的文件, 并寻找main 属性作为 require 的入口<br> c2. 上述找不到,  Node.js 将会试图加载目录下的 index.js 或 index.node 文件<br>4.第三方模块的加载机制:如果传递给 require() 的模块标识符不是一个核心模块，也没有以 ‘/‘ 、 ‘../‘ 或 ‘./‘ 开头，<br> 那么 Node.js 会从当前模块的父目录开始，尝试从它的 /node_modules 目录里加载模块。如果还是没有找到，<br>则移动到再上一层父目录，直到文件系统的根目录。</p>
+              <h3 id="一、SQL-语句"><a href="#一、SQL-语句" class="headerlink" title="一、SQL 语句"></a>一、SQL 语句</h3>  <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">(1) 查询数据 select<br><br>  (2) 插入数据 insert<br><br>  (3) 更新数据 update<br><br>  (4) 删除数据 delete<br><br></code></pre></td></tr></table></figure>
+<h3 id="二、查询数据语法"><a href="#二、查询数据语法" class="headerlink" title="二、查询数据语法"></a>二、查询数据语法</h3><ol>
+<li><p>从指定表中查出所有列的数据</p>
+<p><code>SELECT * FROM 表名称</code></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>从指定表中查出指定列的数据</p>
+<p><code>SELECT 列名称 FROM 表名称</code></p>
+</li>
+</ol>
+<h3 id="三、插入数据的语法"><a href="#三、插入数据的语法" class="headerlink" title="三、插入数据的语法"></a>三、插入数据的语法</h3><p>   向指定的数据表中插入一条数据</p>
+<p>   <code>INSERT INTO 表名称(列1, 列2, ...) VALUES(值1, 值2, ...)</code></p>
+<h3 id="四、更新数据语法"><a href="#四、更新数据语法" class="headerlink" title="四、更新数据语法"></a>四、更新数据语法</h3><p>   更新数据表中的某一列或多列数据</p>
+<p>   <code>UPDATE 表名称 SET 列1=值1, 列2=值2 WHERE 列名称=值;</code></p>
+<h3 id="五、删除数据语法"><a href="#五、删除数据语法" class="headerlink" title="五、删除数据语法"></a>五、删除数据语法</h3><p>   删除数据表中的某一行或多行数据</p>
+<p>   <code>DELETE FROM 表名称 WHERE 列名称=值;</code></p>
+<h3 id="六、WHERE-子句的作用"><a href="#六、WHERE-子句的作用" class="headerlink" title="六、WHERE 子句的作用"></a>六、WHERE 子句的作用</h3><p>   如果需要有条件的从表中选取数据, 可以使用 WHERE 子句添加到 SQL 语句的末尾</p>
+<p>   <code>SELECT * FROM 表名称 WHERE 列名称 运算符 值</code></p>
+<h3 id="七、常见的运算符"><a href="#七、常见的运算符" class="headerlink" title="七、常见的运算符"></a>七、常见的运算符</h3><p>   (1) &gt; 和 &gt;= </p>
+<p>   (2) &lt; 和 &lt;=</p>
+<p>   (3) != 或 &lt;&gt;</p>
+<p>   (4) =</p>
+<p>   (5) BETWEEN</p>
+<p>   (6) LIKE</p>
+<h3 id="八、AND-和-OR-运算符"><a href="#八、AND-和-OR-运算符" class="headerlink" title="八、AND 和 OR 运算符"></a>八、AND 和 OR 运算符</h3><p>   可以在 WHERE 子句中把多个条件结合起来, AND 表示并且, OR 表示或者的意思</p>
+<p><code>select * from users where id=1 and username=&#39;xm&#39;;</code></p>
+<p><code>select * from users where id=1 or username=&#39;xm&#39;;</code></p>
+<h3 id="九、使用-ORDER-BY-子句对结果进行排序"><a href="#九、使用-ORDER-BY-子句对结果进行排序" class="headerlink" title="九、使用 ORDER BY 子句对结果进行排序"></a>九、使用 ORDER BY 子句对结果进行排序</h3><p>   <code>SELECT * FROM users ORDER BY status DESC;</code></p>
+<p>   默认的排序方式为升序 ASC, 如果使用降序可以添加 DESC 关键字</p>
+<h3 id="十、多重排序规则"><a href="#十、多重排序规则" class="headerlink" title="十、多重排序规则"></a>十、多重排序规则</h3><p>   <code>SELECT 列名称 FROM 表名称 ORDER BY 列名称 [排序规则], 列名称 [排序规则]</code></p>
+<p> 注意：</p>
+<p>   同时使用 ORDER BY 和 WHERE子句时, 应该让 ORDER BY 位于 WHERE 之后, 否则将会产生错误</p>
+<h3 id="十一、COUNT-函数作用"><a href="#十一、COUNT-函数作用" class="headerlink" title="十一、COUNT 函数作用"></a>十一、COUNT 函数作用</h3><p>   可以返回匹配指定条件的行数</p>
+<p>   <code>SELECT COUNT(*) FROM 表名称</code></p>
+<h3 id="十二、使用-AS-为列名称设置别名"><a href="#十二、使用-AS-为列名称设置别名" class="headerlink" title="十二、使用 AS 为列名称设置别名"></a>十二、使用 AS 为列名称设置别名</h3><p>   示例: 给查询出来的用户起一个别名 </p>
+<p>   <code>SELECT username As name FROM users;</code></p>
 
             </div>
             <hr>
@@ -245,9 +281,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD/">模块加载</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">模块的加载机制</a>
+                      <a class="hover-with-bg" href="/tags/sql%E8%AF%AD%E5%8F%A5/">sql语句</a>
                     
                   </div>
                 
@@ -260,18 +294,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/24/sql%E8%AF%AD%E5%8F%A5/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">sql语句</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/21/npm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93/">
-                        <span class="hidden-mobile">npm相关命令</span>
+                      <a href="/2021/02/21/%E6%80%BB%E7%BB%93%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+                        <span class="hidden-mobile">模块的加载机制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
