@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>sql语句 - lixiu的博客</title>
+  <title>express-session笔记 - lixiu的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="sql语句">
+            <span class="h2" id="subtitle" title="express-session笔记">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-24 20:51" pubdate>
-        2021年2月24日 晚上
+      <time datetime="2021-02-27 15:32" pubdate>
+        2021年2月27日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      484 字
+      394 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      6
        分钟
     </span>
   
@@ -224,46 +224,18 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">sql语句</h1>
+            <h1 style="display: none">express-session笔记</h1>
             
             <div class="markdown-body">
-              <h3 id="一、SQL-语句"><a href="#一、SQL-语句" class="headerlink" title="一、SQL 语句"></a>一、SQL 语句</h3>  <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">(1) 查询数据 select<br><br>  (2) 插入数据 insert<br><br>  (3) 更新数据 update<br><br>  (4) 删除数据 delete<br><br></code></pre></td></tr></table></figure>
-<h3 id="二、查询数据语法"><a href="#二、查询数据语法" class="headerlink" title="二、查询数据语法"></a>二、查询数据语法</h3><ol>
-<li><p>从指定表中查出所有列的数据</p>
-<p><code>SELECT * FROM 表名称</code></p>
-</li>
-</ol>
-<ol start="2">
-<li><p>从指定表中查出指定列的数据</p>
-<p><code>SELECT 列名称 FROM 表名称</code></p>
-</li>
-</ol>
-<h3 id="三、插入数据的语法"><a href="#三、插入数据的语法" class="headerlink" title="三、插入数据的语法"></a>三、插入数据的语法</h3><p>   向指定的数据表中插入一条数据</p>
-<p>   <code>INSERT INTO 表名称(列1, 列2, ...) VALUES(值1, 值2, ...)</code></p>
-<h3 id="四、更新数据语法"><a href="#四、更新数据语法" class="headerlink" title="四、更新数据语法"></a>四、更新数据语法</h3><p>   更新数据表中的某一列或多列数据</p>
-<p>   <code>UPDATE 表名称 SET 列1=值1, 列2=值2 WHERE 列名称=值;</code></p>
-<h3 id="五、删除数据语法"><a href="#五、删除数据语法" class="headerlink" title="五、删除数据语法"></a>五、删除数据语法</h3><p>   删除数据表中的某一行或多行数据</p>
-<p>   <code>DELETE FROM 表名称 WHERE 列名称=值;</code></p>
-<h3 id="六、WHERE-子句的作用"><a href="#六、WHERE-子句的作用" class="headerlink" title="六、WHERE 子句的作用"></a>六、WHERE 子句的作用</h3><p>   如果需要有条件的从表中选取数据, 可以使用 WHERE 子句添加到 SQL 语句的末尾</p>
-<p>   <code>SELECT * FROM 表名称 WHERE 列名称 运算符 值</code></p>
-<h3 id="七、常见的运算符"><a href="#七、常见的运算符" class="headerlink" title="七、常见的运算符"></a>七、常见的运算符</h3><p>   (1) &gt; 和 &gt;= </p>
-<p>   (2) &lt; 和 &lt;=</p>
-<p>   (3) != 或 &lt;&gt;</p>
-<p>   (4) =</p>
-<p>   (5) BETWEEN</p>
-<p>   (6) LIKE</p>
-<h3 id="八、AND-和-OR-运算符"><a href="#八、AND-和-OR-运算符" class="headerlink" title="八、AND 和 OR 运算符"></a>八、AND 和 OR 运算符</h3><p>   可以在 WHERE 子句中把多个条件结合起来, AND 表示并且, OR 表示或者的意思</p>
-<p><code>select * from users where id=1 and username=&#39;xm&#39;;</code></p>
-<p><code>select * from users where id=1 or username=&#39;xm&#39;;</code></p>
-<h3 id="九、使用-ORDER-BY-子句对结果进行排序"><a href="#九、使用-ORDER-BY-子句对结果进行排序" class="headerlink" title="九、使用 ORDER BY 子句对结果进行排序"></a>九、使用 ORDER BY 子句对结果进行排序</h3><p>   <code>SELECT * FROM users ORDER BY status DESC;</code></p>
-<p>   默认的排序方式为升序 ASC, 如果使用降序可以添加 DESC 关键字</p>
-<h3 id="十、多重排序规则"><a href="#十、多重排序规则" class="headerlink" title="十、多重排序规则"></a>十、多重排序规则</h3><p>   <code>SELECT 列名称 FROM 表名称 ORDER BY 列名称 [排序规则], 列名称 [排序规则]</code></p>
-<p> 注意：</p>
-<p>   同时使用 ORDER BY 和 WHERE子句时, 应该让 ORDER BY 位于 WHERE 之后, 否则将会产生错误</p>
-<h3 id="十一、COUNT-函数作用"><a href="#十一、COUNT-函数作用" class="headerlink" title="十一、COUNT 函数作用"></a>十一、COUNT 函数作用</h3><p>   可以返回匹配指定条件的行数</p>
-<p>   <code>SELECT COUNT(*) FROM 表名称</code></p>
-<h3 id="十二、使用-AS-为列名称设置别名"><a href="#十二、使用-AS-为列名称设置别名" class="headerlink" title="十二、使用 AS 为列名称设置别名"></a>十二、使用 AS 为列名称设置别名</h3><p>   示例: 给查询出来的用户起一个别名 </p>
-<p>   <code>SELECT username As name FROM users;</code></p>
+              <h4 id="1-导入-express-模块"><a href="#1-导入-express-模块" class="headerlink" title="1.导入 express 模块"></a>1.导入 express 模块</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>)<br><br><span class="hljs-keyword">const</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express-session&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="2-创建-express-的服务器实例"><a href="#2-创建-express-的服务器实例" class="headerlink" title="2.创建 express 的服务器实例"></a>2.创建 express 的服务器实例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = express()<br></code></pre></td></tr></table></figure>
+<h4 id="3-配置-Session-中间件，调用session-方法生成读写session数据中间件"><a href="#3-配置-Session-中间件，调用session-方法生成读写session数据中间件" class="headerlink" title="3.配置 Session 中间件，调用session()方法生成读写session数据中间件"></a>3.配置 Session 中间件，调用session()方法生成读写session数据中间件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(session(&#123;<br><br>  secret: <span class="hljs-string">&#x27;keyboard cat&#x27;</span>,<br><br>  resave: <span class="hljs-literal">false</span>,<br><br>  saveUninitialized: <span class="hljs-literal">true</span>,<br><br>  <span class="hljs-comment">// cookie: &#123; secure: true &#125;</span><br><br>&#125;))<br><br></code></pre></td></tr></table></figure>
+<h4 id="4-托管静态页面"><a href="#4-托管静态页面" class="headerlink" title="4.托管静态页面"></a>4.托管静态页面</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(express.static(<span class="hljs-string">&#x27;./pages&#x27;</span>))<br></code></pre></td></tr></table></figure>
+<h4 id="5-解析-POST-提交过来的表单数据"><a href="#5-解析-POST-提交过来的表单数据" class="headerlink" title="5.解析 POST 提交过来的表单数据"></a>5.解析 POST 提交过来的表单数据</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(express.urlencoded(&#123; <span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span> &#125;))<br></code></pre></td></tr></table></figure>
+<h4 id="6-登录的-API-接口"><a href="#6-登录的-API-接口" class="headerlink" title="6.登录的 API 接口"></a>6.登录的 API 接口</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js">app.post(<span class="hljs-string">&#x27;/api/login&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-comment">// 判断用户提交的登录信息是否正确</span><br><br>  <span class="hljs-keyword">if</span> (req.body.username !== <span class="hljs-string">&#x27;admin&#x27;</span> || req.body.password !== <span class="hljs-string">&#x27;000000&#x27;</span>) &#123;<br><br>    <span class="hljs-keyword">return</span> res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;登录失败&#x27;</span> &#125;)<br><br>  &#125;<br>  <span class="hljs-comment">// req.body 获取请求体中的数据 &#123;username:&#x27;admin&#x27;,password:&#x27;000000&#x27;&#125;</span><br><br>  req.session.user = req.body<br><br>  req.session.isLogin = <span class="hljs-literal">true</span><br><br>  <span class="hljs-built_in">console</span>.log(req.session.user);<br><br>  res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;登录成功&#x27;</span> &#125;)<br><br>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="7-获取用户姓名的接口"><a href="#7-获取用户姓名的接口" class="headerlink" title="7.获取用户姓名的接口"></a>7.获取用户姓名的接口</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">app.get(<span class="hljs-string">&#x27;/api/username&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-built_in">console</span>.log(req.session)<br><br>  <span class="hljs-comment">//从 Session 中获取用户的名称，响应给客户端</span><br><br>  <span class="hljs-keyword">if</span> (req.session.isLogin != <span class="hljs-literal">true</span>) &#123;<br><br>    <span class="hljs-keyword">return</span> res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;没有登录!&#x27;</span> &#125;)<br><br>  &#125;<br><br>  res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;获取用户名成功!&#x27;</span>, <span class="hljs-attr">username</span>: req.session.user.username &#125;)<br><br>&#125;)<br><br></code></pre></td></tr></table></figure>
+<h3 id="8-退出登录的接口"><a href="#8-退出登录的接口" class="headerlink" title="8.退出登录的接口"></a>8.退出登录的接口</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">app.post(<span class="hljs-string">&#x27;/api/logout&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-comment">// TODO_04：清空 Session 信息</span><br><br>  <span class="hljs-comment">// 销毁当前用户存储的session数据</span><br><br>  req.session.destroy()<br><br>    <span class="hljs-comment">// 返回退出成功</span><br><br>  res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;退出成功!&#x27;</span> &#125;)<br><br>&#125;)<br><br></code></pre></td></tr></table></figure>
+<h3 id="9-调用-app-listen-方法，指定端口号并启动web服务器"><a href="#9-调用-app-listen-方法，指定端口号并启动web服务器" class="headerlink" title="9.调用 app.listen 方法，指定端口号并启动web服务器"></a>9.调用 app.listen 方法，指定端口号并启动web服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">app.listen(<span class="hljs-number">3006</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br><br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Express server running at http://localhost:3006&#x27;</span>)<br><br>&#125;)<br><br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -281,7 +253,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/sql%E8%AF%AD%E5%8F%A5/">sql语句</a>
+                      <a class="hover-with-bg" href="/tags/express-session/">express-session</a>
+                    
+                      <a class="hover-with-bg" href="/tags/express-session%E7%AC%94%E8%AE%B0/">express-session笔记</a>
                     
                   </div>
                 
@@ -294,18 +268,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/27/express-session%E8%AE%A4%E8%AF%81/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">express-session笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/21/%E6%80%BB%E7%BB%93%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
-                        <span class="hidden-mobile">模块的加载机制</span>
+                      <a href="/2021/02/24/sql%E8%AF%AD%E5%8F%A5/">
+                        <span class="hidden-mobile">sql语句</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
