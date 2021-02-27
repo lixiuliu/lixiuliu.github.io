@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>express-session笔记 - lixiu的博客</title>
+  <title>jwt笔记 - lixiu的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="express-session笔记">
+            <span class="h2" id="subtitle" title="jwt笔记">
               
             </span>
 
@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-27 15:32" pubdate>
+      <time datetime="2021-02-27 15:54" pubdate>
         2021年2月27日 下午
       </time>
     </span>
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      394 字
+      458 字
     </span>
   
 
@@ -224,18 +224,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">express-session笔记</h1>
+            <h1 style="display: none">jwt笔记</h1>
             
             <div class="markdown-body">
-              <h4 id="1-导入-express-模块"><a href="#1-导入-express-模块" class="headerlink" title="1.导入 express 模块"></a>1.导入 express 模块</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>)<br><br><span class="hljs-keyword">const</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express-session&#x27;</span>)<br></code></pre></td></tr></table></figure>
-<h4 id="2-创建-express-的服务器实例"><a href="#2-创建-express-的服务器实例" class="headerlink" title="2.创建 express 的服务器实例"></a>2.创建 express 的服务器实例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> app = express()<br></code></pre></td></tr></table></figure>
-<h4 id="3-配置-Session-中间件，调用session-方法生成读写session数据中间件"><a href="#3-配置-Session-中间件，调用session-方法生成读写session数据中间件" class="headerlink" title="3.配置 Session 中间件，调用session()方法生成读写session数据中间件"></a>3.配置 Session 中间件，调用session()方法生成读写session数据中间件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(session(&#123;<br><br>  secret: <span class="hljs-string">&#x27;keyboard cat&#x27;</span>,<br><br>  resave: <span class="hljs-literal">false</span>,<br><br>  saveUninitialized: <span class="hljs-literal">true</span>,<br><br>  <span class="hljs-comment">// cookie: &#123; secure: true &#125;</span><br><br>&#125;))<br><br></code></pre></td></tr></table></figure>
-<h4 id="4-托管静态页面"><a href="#4-托管静态页面" class="headerlink" title="4.托管静态页面"></a>4.托管静态页面</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(express.static(<span class="hljs-string">&#x27;./pages&#x27;</span>))<br></code></pre></td></tr></table></figure>
-<h4 id="5-解析-POST-提交过来的表单数据"><a href="#5-解析-POST-提交过来的表单数据" class="headerlink" title="5.解析 POST 提交过来的表单数据"></a>5.解析 POST 提交过来的表单数据</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(express.urlencoded(&#123; <span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span> &#125;))<br></code></pre></td></tr></table></figure>
-<h4 id="6-登录的-API-接口"><a href="#6-登录的-API-接口" class="headerlink" title="6.登录的 API 接口"></a>6.登录的 API 接口</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js">app.post(<span class="hljs-string">&#x27;/api/login&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-comment">// 判断用户提交的登录信息是否正确</span><br><br>  <span class="hljs-keyword">if</span> (req.body.username !== <span class="hljs-string">&#x27;admin&#x27;</span> || req.body.password !== <span class="hljs-string">&#x27;000000&#x27;</span>) &#123;<br><br>    <span class="hljs-keyword">return</span> res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;登录失败&#x27;</span> &#125;)<br><br>  &#125;<br>  <span class="hljs-comment">// req.body 获取请求体中的数据 &#123;username:&#x27;admin&#x27;,password:&#x27;000000&#x27;&#125;</span><br><br>  req.session.user = req.body<br><br>  req.session.isLogin = <span class="hljs-literal">true</span><br><br>  <span class="hljs-built_in">console</span>.log(req.session.user);<br><br>  res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;登录成功&#x27;</span> &#125;)<br><br>&#125;)<br></code></pre></td></tr></table></figure>
-<h3 id="7-获取用户姓名的接口"><a href="#7-获取用户姓名的接口" class="headerlink" title="7.获取用户姓名的接口"></a>7.获取用户姓名的接口</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">app.get(<span class="hljs-string">&#x27;/api/username&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-built_in">console</span>.log(req.session)<br><br>  <span class="hljs-comment">//从 Session 中获取用户的名称，响应给客户端</span><br><br>  <span class="hljs-keyword">if</span> (req.session.isLogin != <span class="hljs-literal">true</span>) &#123;<br><br>    <span class="hljs-keyword">return</span> res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;没有登录!&#x27;</span> &#125;)<br><br>  &#125;<br><br>  res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;获取用户名成功!&#x27;</span>, <span class="hljs-attr">username</span>: req.session.user.username &#125;)<br><br>&#125;)<br><br></code></pre></td></tr></table></figure>
-<h3 id="8-退出登录的接口"><a href="#8-退出登录的接口" class="headerlink" title="8.退出登录的接口"></a>8.退出登录的接口</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">app.post(<span class="hljs-string">&#x27;/api/logout&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br><br>  <span class="hljs-comment">// TODO_04：清空 Session 信息</span><br><br>  <span class="hljs-comment">// 销毁当前用户存储的session数据</span><br><br>  req.session.destroy()<br><br>    <span class="hljs-comment">// 返回退出成功</span><br><br>  res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;退出成功!&#x27;</span> &#125;)<br><br>&#125;)<br><br></code></pre></td></tr></table></figure>
-<h3 id="9-调用-app-listen-方法，指定端口号并启动web服务器"><a href="#9-调用-app-listen-方法，指定端口号并启动web服务器" class="headerlink" title="9.调用 app.listen 方法，指定端口号并启动web服务器"></a>9.调用 app.listen 方法，指定端口号并启动web服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">app.listen(<span class="hljs-number">3006</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br><br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Express server running at http://localhost:3006&#x27;</span>)<br><br>&#125;)<br><br></code></pre></td></tr></table></figure>
+              <h3 id="一、JWT-的认证机制"><a href="#一、JWT-的认证机制" class="headerlink" title="一、JWT 的认证机制"></a>一、JWT 的认证机制</h3><p>   用户信息通过加密签名后 token 字符串的形式, 保存在客户端浏览器中. 服务器通过解密客户端传来的 token 字符串</p>
+<p>  来认证用户的身份</p>
+<h3 id="二、JWT-的组成部分"><a href="#二、JWT-的组成部分" class="headerlink" title="二、JWT 的组成部分"></a>二、JWT 的组成部分</h3><p>   通常由三部分组成, 使用英文符号.进行分隔: Header.Payload.Signature</p>
+<p>   Header: 头部</p>
+<p>   Payload: 有效荷载, 这里存放的是经过加密后的用户信息</p>
+<p>   Signature: 签名</p>
+<h3 id="三、JWT-使用方式"><a href="#三、JWT-使用方式" class="headerlink" title="三、JWT 使用方式"></a>三、JWT 使用方式</h3><p>   服务端签发 TOKEN 到客户端后, 可以存储到 localStorage 中, 每次发送请求前都要带上这个 TOKEN, 推荐放在</p>
+<p>  HTTP 请求头的 Authorization 字段中 (大事件项目中处理方式一致)</p>
+<h3 id="1-安装-JWT-相关的包"><a href="#1-安装-JWT-相关的包" class="headerlink" title="1.安装 JWT 相关的包"></a>1.安装 JWT 相关的包</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install jsonwebtoken express-jwt<br></code></pre></td></tr></table></figure>
+<h3 id="2-安装并导入-JWT-相关的两个包，分别是-jsonwebtoken-和-express-jwt"><a href="#2-安装并导入-JWT-相关的两个包，分别是-jsonwebtoken-和-express-jwt" class="headerlink" title="2.安装并导入 JWT 相关的两个包，分别是 jsonwebtoken 和 express-jwt"></a>2.安装并导入 JWT 相关的两个包，分别是 jsonwebtoken 和 express-jwt</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> jwt = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;jsonwebtoken&#x27;</span>)<br><span class="hljs-keyword">const</span> jwtParser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express-jwt&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="3-定义-secret-密钥"><a href="#3-定义-secret-密钥" class="headerlink" title="3.定义 secret 密钥"></a>3.定义 secret 密钥</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> secret=<span class="hljs-string">&#x27;itheima No1&#x27;</span><br></code></pre></td></tr></table></figure>
+<h3 id="4-在登录成功后生成-JWT-字符串"><a href="#4-在登录成功后生成-JWT-字符串" class="headerlink" title="4.在登录成功后生成 JWT 字符串"></a>4.在登录成功后生成 JWT 字符串</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">app.post(<span class="hljs-string">&#x27;/api/login&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;<br>    res.send(&#123;<br>        status: <span class="hljs-number">200</span>,<br>        message: <span class="hljs-string">&#x27;登录成功！&#x27;</span>,<br>        token: jwt.sign(&#123; <span class="hljs-attr">username</span>: userinfo.username &#125;, secretKey,&#123;<span class="hljs-attr">expiresIn</span>:<span class="hljs-string">&#x27;30s&#x27;</span>&#125;)<br>    &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="5-将-JWT-字符串还原为-JSON-对象"><a href="#5-将-JWT-字符串还原为-JSON-对象" class="headerlink" title="5.将 JWT 字符串还原为 JSON 对象"></a>5.将 JWT 字符串还原为 JSON 对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(expressJWT(&#123;<span class="hljs-attr">secret</span>:secretKey&#125;).unless(&#123;<span class="hljs-attr">path</span>:[<span class="hljs-regexp">/^\/api\//</span>]&#125;))<br></code></pre></td></tr></table></figure>
+<h3 id="6-使用-req-user-获取用户信息"><a href="#6-使用-req-user-获取用户信息" class="headerlink" title="6.使用 req.user 获取用户信息"></a>6.使用 req.user 获取用户信息</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">app.get(<span class="hljs-string">&#x27;/admin/getinfo&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>&#123;<br> <span class="hljs-comment">//使用 req.user 获取用户信息，并使用 data 属性将用户信息发送给客户端</span><br>    res.send(&#123;<br>        status: <span class="hljs-number">200</span>,<br>        message: <span class="hljs-string">&#x27;获取用户信息成功！&#x27;</span>,<br>        data: req.user <span class="hljs-comment">// 要发送给客户端的用户信息</span><br>    &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="7-捕获解析-JWT-失败后产生的错误"><a href="#7-捕获解析-JWT-失败后产生的错误" class="headerlink" title="7.捕获解析 JWT 失败后产生的错误"></a>7.捕获解析 JWT 失败后产生的错误</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">app.use(<span class="hljs-function">(<span class="hljs-params">err, req, res, next</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">if</span> (err.name === <span class="hljs-string">&#x27;UnauthorizedError&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">401</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;无效的token&#x27;</span> &#125;)<br>    &#125;<br>    <span class="hljs-comment">// 其他原因导致错误</span><br>    res.send(&#123; <span class="hljs-attr">status</span>: <span class="hljs-number">500</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;未知错误&#x27;</span> &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+
 
             </div>
             <hr>
@@ -253,9 +261,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/express-session/">express-session</a>
+                      <a class="hover-with-bg" href="/tags/jwt/">jwt</a>
                     
-                      <a class="hover-with-bg" href="/tags/express-session%E7%AC%94%E8%AE%B0/">express-session笔记</a>
+                      <a class="hover-with-bg" href="/tags/jwt%E7%AC%94%E8%AE%B0/">jwt笔记</a>
                     
                   </div>
                 
@@ -268,18 +276,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/27/jwt%E8%AE%A4%E8%AF%81/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">jwt笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/24/sql%E8%AF%AD%E5%8F%A5/">
-                        <span class="hidden-mobile">sql语句</span>
+                      <a href="/2021/02/27/express-session%E8%AE%A4%E8%AF%81/">
+                        <span class="hidden-mobile">express-session笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
